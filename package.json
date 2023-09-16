@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "Backend RESTful api for blog application that allows users to create, read, update, and delete blog posts",
   "main": "index.js",
-  "engines": {
-    "node": "18.x"
-  },
   "scripts": {
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
