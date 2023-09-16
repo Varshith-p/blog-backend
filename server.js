@@ -11,12 +11,17 @@ const postsRouter = require("./routes/postsRoutes");
 const notFoundMiddleware = require("./middleware/not-found");
 const errorHandlerMiddleware = require("./middleware/error-handler");
 const authenticateUser = require("./middleware/auth");
+const { StatusCodes } = require("http-status-codes");
+const endPoints = require("./utils/endPoints");
 
 // middleware
 app.use(cors());
 app.use(express.json());
 
 // routes
+app.get("/", (req, res) => {
+  res.status(StatusCodes.OK).json(endPoints);
+});
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/posts", authenticateUser, postsRouter);
 

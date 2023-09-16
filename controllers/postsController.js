@@ -30,6 +30,18 @@ const getAllPosts = async (req, res) => {
   res.status(StatusCodes.OK).json({ posts, totalPosts });
 };
 
+const getPost = async (req, res) => {
+  const { id: postId } = req.params;
+  const post = await Post.findById(postId).populate("user", [
+    "firstName",
+    "lastName",
+  ]);
+  if (!post) {
+    throw new NotFoundError(`No post with id: ${postId}`);
+  }
+  res.status(StatusCodes.OK).json({ post });
+};
+
 const updatePost = async (req, res) => {
   const { id: postId } = req.params;
   const { title, category, description } = req.body;
@@ -52,5 +64,6 @@ module.exports = {
   createPost,
   deletePost,
   getAllPosts,
+  getPost,
   updatePost,
 };
