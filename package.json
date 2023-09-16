@@ -4,6 +4,7 @@
   "description": "Backend RESTful api for blog application that allows users to create, read, update, and delete blog posts",
   "main": "index.js",
   "scripts": {
+    "start": "node server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Varshith Puligadda",
